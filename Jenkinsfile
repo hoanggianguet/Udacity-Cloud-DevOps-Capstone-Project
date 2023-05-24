@@ -125,14 +125,14 @@ pipeline {
 		stage("Create Kubernetes Cluster") {
 			steps {
 				withAWS(region:'us-east-1',credentials:'aws-jenkins') {
-					sh 'eksctl create cluster --name udacity-capstone --version 1.26 --region us-east-1 --nodegroup-name project --node-type t3.micro --nodes 4 --nodes-min 2 --nodes-max 4 --managed'
+					sh 'eksctl create cluster --name capstone-project --version 1.26 --region us-east-1 --nodegroup-name project-udacity --node-type t3.micro --nodes 4 --nodes-min 2 --nodes-max 4 --managed'
 				}
 			}
 		}
 		stage("Update K8s Cluster Context") {
 			steps {
 				withAWS(region:'us-east-1',credentials:'aws-jenkins') {
-					sh 'aws eks --region us-east-1 update-kubeconfig --name udacity-capstone'
+					sh 'aws eks --region us-east-1 update-kubeconfig --name capstone-project '
 				}
 			}
 		}
