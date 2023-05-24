@@ -57,11 +57,6 @@ pipeline {
 						'''
 					}
 				}
-				stage("Dislay List Images was build") {
-					steps {
-						sh 'docker images'
-					}
-				}
 			}
 		}
 		
@@ -85,12 +80,6 @@ pipeline {
 						'''
 					}
 				}
-				stage("List Images after Pushing to DockerHub") {
-					steps {
-						sh 'echo " ---- Listing Dockers Images --- "'
-						sh 'docker images'
-					}
-				}
 			}
 		}
 		
@@ -112,12 +101,6 @@ pipeline {
 							cd ./green-app
 							./remove_docker.sh
 						'''
-					}
-				}
-				stage("Confirm Docker Images was removed") {
-					steps {
-						sh 'echo " ---- Listing Dockers Images --- "'
-						sh 'docker images'
 					}
 				}
 			}
