@@ -157,6 +157,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-1',credentials:'aws-jenkins') {
 					sleep time: 1, unit: 'MINUTES'
+					sh 'kubectl get nodes,deploy,svc,pod'
 					sh 'kubectl get service -o wide'
 					sleep time: 1, unit: 'MINUTES'
 				}
@@ -173,6 +174,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-1',credentials:'aws-jenkins') {
 					sleep time: 1, unit: 'MINUTES'
+					sh 'kubectl get nodes,deploy,svc,pod'
 					sh 'kubectl get service -o wide'
 				}
 			}
